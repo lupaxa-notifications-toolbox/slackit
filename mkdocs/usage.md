@@ -85,7 +85,8 @@ client.send_attachment('{"text": "Inside the attachment"}')
 client.send_block('[{"type": "section", "text": {"type": "mrkdwn", "text": "Hello"}}]')
 ```
 
-`send` is an alias of `send_message`. Username, channel, and icon emoji are
+`JsonValue` is a JSON string, number, boolean, null, list, or object. `send`
+is an alias of `send_message`. Username, channel, and icon emoji are
 added to the JSON body when you set them and the payload does not already
 include that field. `validate` checks the webhook again and posts
 `This is a validation message` to channel `general`.
@@ -106,7 +107,7 @@ send_message(text: str) -> bool
 send(text: str) -> bool
 send_attachment(attachment: str) -> bool
 send_block(block: str) -> bool
-send_payload(payload: dict[str, object]) -> bool
+send_payload(payload: dict[str, JsonValue]) -> bool
 validate() -> bool
 
 load_profile(name: str, path: Path | None = None) -> Profile

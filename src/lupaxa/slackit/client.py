@@ -4,12 +4,15 @@ from __future__ import annotations
 
 import json
 import math
+from typing import cast
 
 import requests
 
 DEFAULT_TIMEOUT = 10.0
 WEBHOOK_PREFIX = "https://hooks.slack.com/services/"
 _REDIRECT_STATUSES = {301, 302}
+
+type JsonValue = None | bool | int | float | str | list[JsonValue] | dict[str, JsonValue]
 
 
 class Slackit:
@@ -69,15 +72,15 @@ class Slackit:
         """Post Block Kit blocks encoded as a JSON string."""
         return self.send_payload({"blocks": self.convert_to_json(block)})
 
-    def convert_to_json(self, json_string: str) -> object:
+    def convert_to_json(self, json_string: str) -> JsonValue:
         """Parse ``json_string`` or raise ``ValueError``."""
         try:
-            parsed: object = json.loads(json_string)
+            parsed = json.loads(json_string)
         except json.JSONDecodeError as exc:
             raise ValueError("Invalid json") from exc
-        return parsed
+        return cast(JsonValue, parsed)
 
-    def send_payload(self, payload: dict[str, object]) -> bool:
+    def send_payload(self, payload: dict[str, JsonValue]) -> bool:
         """POST ``payload`` as JSON, filling username, channel, and icon."""
         body = _with_defaults(payload, self.icon_emoji, self.username, self.channel)
         response = requests.post(
@@ -113,11 +116,11 @@ def _require_timeout(timeout: float) -> float:
 
 
 def _with_defaults(
-    payload: dict[str, object],
+    payload: dict[str, JsonValue],
     icon_emoji: str | None,
     username: str | None,
     channel: str | None,
-) -> dict[str, object]:
+) -> dict[str, JsonValue]:
     body = dict(payload)
     for key, value in (
         ("icon_emoji", icon_emoji),
