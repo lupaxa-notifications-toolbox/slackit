@@ -3,7 +3,7 @@
 Use `slackit` to post one message, one attachment, or one Block Kit payload.
 Pass the webhook URL with `--webhook`, or select a profile with `--profile`.
 
-## CLI flags
+## CLI Flags
 
 | Flag                 | Default            | Description                                      |
 | :------------------- | :----------------- | :----------------------------------------------- |
@@ -28,7 +28,7 @@ slackit --webhook "$SLACK_WEBHOOK_URL" --username PyBot --channel "#testing" --t
 One of them is required. `--timeout` must be greater than `0`. A flag overrides
 the same field from the selected profile.
 
-## Config file
+## Config File
 
 Profiles live in one YAML file. The default path is `$HOME/.slackit.yml`.
 Pass `--config` when the file lives somewhere else.

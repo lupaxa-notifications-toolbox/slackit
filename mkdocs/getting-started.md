@@ -1,4 +1,4 @@
-# Getting started
+# Getting Started
 
 ## Requirements
 
@@ -13,7 +13,7 @@ pip install lupaxa-slackit
 slackit --help
 ```
 
-## First run
+## First Run
 
 ```bash
 slackit --webhook "$SLACK_WEBHOOK_URL" --text "Hello, Slack!"
@@ -22,7 +22,7 @@ slackit --webhook "$SLACK_WEBHOOK_URL" --text "Hello, Slack!"
 The command exits `0` when Slack accepts the message. Put the webhook URL in
 the environment, or in a profile, rather than in shell history.
 
-## Config file
+## Config File
 
 Profiles live in `$HOME/.slackit.yml`. Pass `--config` when the file lives
 somewhere else. `--config` requires `--profile`.
@@ -54,7 +54,7 @@ Module entry point:
 python -m lupaxa.slackit --version
 ```
 
-### From source (development)
+### From Source (Development)
 
 ```bash
 make init
@@ -62,7 +62,7 @@ make python-install-dev
 slackit --version
 ```
 
-## Makefile helpers
+## Makefile Helpers
 
 ```bash
 make init                 # clone makefile-skills into .makefiles/

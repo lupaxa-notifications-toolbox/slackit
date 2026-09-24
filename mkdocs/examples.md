@@ -1,12 +1,12 @@
 # Examples
 
-## Plain text
+## Plain Text
 
 ```bash
 slackit --webhook "$SLACK_WEBHOOK_URL" --text "Deploy finished"
 ```
 
-## Username, channel, and icon
+## Username, Channel, and Icon
 
 ```bash
 slackit \
@@ -31,7 +31,7 @@ slackit --webhook "$SLACK_WEBHOOK_URL" --blocks \
   '[{"type": "section", "text": {"type": "mrkdwn", "text": "Hello from slackit"}}]'
 ```
 
-## Validation post
+## Validation Post
 
 ```bash
 slackit --webhook "$SLACK_WEBHOOK_URL" --validate

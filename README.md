@@ -4,15 +4,9 @@
   </a>
 </p>
 
-<h1 align="center">slackit</h1>
+<h1 align="center">Slackit</h1>
 
 Send Slack messages through an incoming webhook.
-
-<p align="center">
-  <a href="https://slackit.thelupaxaproject.org/">Documentation</a>
-  ·
-  <a href="https://github.com/lupaxa-notifications-toolbox/slackit">GitHub</a>
-</p>
 
 ## Install
 
@@ -76,6 +70,16 @@ client.send_message("Hello, Slack!")
 make init
 make python-install-dev
 make python-check
+```
+
+## Documentation
+
+Site pages live in `mkdocs/` and publish to
+<https://slackit.thelupaxaproject.org/>.
+
+```bash
+make init
+make python-install-dev
 make mkdocs-serve
 ```
 
